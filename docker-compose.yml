@@ -18,6 +18,8 @@ services:
       context: AirportService
     depends_on:
       - rabbit
+    volumes:
+      - .:/code
     environment:
         REDIS_HOST: "redis"
         REDIS_PORT: "6379"
@@ -31,6 +33,8 @@ services:
       context: TripService
     depends_on:
       - rabbit
+    volumes:
+      - .:/code
     environment:
         REDIS_HOST: "redis"
         REDIS_PORT: "6379"
@@ -44,6 +48,8 @@ services:
       context: GatewayService
     depends_on:
       - rabbit
+    volumes:
+      - .:/code
     ports:
         - "8000:8000"
     environment:
